@@ -29,6 +29,7 @@ struct Typographizer {
     var isDebugModeEnabled = false
     var isMeasurePerformanceEnabled = false
     var isHTML = false
+    var ignored: [UnicodeScalar] = []
 
     private var openingDoubleQuote: String = "·"
     private var closingDoubleQuote: String = "·"
@@ -165,6 +166,10 @@ struct Typographizer {
 
     private mutating func nextToken() throws -> Token? {
         while let ch = self.nextScalar() {
+            if ignored.contains(ch) {
+                return try self.unchangedToken(ch)
+            }
+
             switch ch {
             case "´",
                  "`":

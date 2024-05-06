@@ -80,6 +80,10 @@ class TypographizerTests: XCTestCase {
         XCTAssertEqual("John's.".typographized(language: "en"), "John’s.")
     }
 
+    func testIgnore() {
+        XCTAssertEqual("`Hi´".typographized(language: "en", ignore: ["`", "´"]), "`Hi´")
+    }
+
     func testPerformanceExample() {
         let string = Array(repeating: self.string, count: 1000).joined(separator: " ")
         self.measure {
