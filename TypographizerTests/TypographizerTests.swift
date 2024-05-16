@@ -84,6 +84,10 @@ class TypographizerTests: XCTestCase {
         XCTAssertEqual("`Hi´".typographized(language: "en", ignore: ["`", "´"]), "`Hi´")
     }
 
+		func testApostropheAfterCode() {
+				XCTAssertEqual("<code>hi</code>'s".typographized(language: "en", ignore: ["`", "´"]), "<code>hi</code>’s")
+		}
+
     func testPerformanceExample() {
         let string = Array(repeating: self.string, count: 1000).joined(separator: " ")
         self.measure {
