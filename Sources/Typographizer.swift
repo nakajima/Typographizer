@@ -167,7 +167,6 @@ struct Typographizer {
     private mutating func nextToken() throws -> Token? {
         while let ch = self.nextScalar() {
             if ignored.contains(ch) {
-							print("ignoring \(ch)")
 							return Token(.ignored, String(ch))
             }
 
