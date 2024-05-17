@@ -38,7 +38,7 @@ struct Typographizer {
 
     private let apostrophe: String = "’"
     private let enDash: String = "–"
-    private let tagsToSkip: Set<String> = ["pre", "code", "var", "samp", "kbd", "math", "script", "style"]
+    private let tagsToSkip: Set<String> = ["pre", "code", "var", "samp", "kbd", "math", "script", "style", "mark"]
     private let openingBracketsSet: Set<UnicodeScalar> = ["(", "["]
 
     init(language: String, text: String, isHTML: Bool = false, debug: Bool = false, measurePerformance: Bool = false) {
